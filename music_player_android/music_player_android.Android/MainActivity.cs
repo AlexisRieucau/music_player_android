@@ -6,6 +6,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Xamarin.Essentials;
+using Acr.UserDialogs;
 
 namespace music_player_android.Droid
 {
@@ -19,6 +21,14 @@ namespace music_player_android.Droid
 
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+            // init xamarin essentials
+            base.OnCreate(savedInstanceState);
+            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+
+            // init user dialogs
+            UserDialogs.Init(this);
+
             LoadApplication(new App());
         }
     }

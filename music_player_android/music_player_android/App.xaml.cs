@@ -11,7 +11,7 @@ namespace music_player_android
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new ListMusicPage());
         }
 
         protected override void OnStart()
