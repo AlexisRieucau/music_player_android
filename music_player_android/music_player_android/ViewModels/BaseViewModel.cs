@@ -6,8 +6,10 @@ using System.Text;
 
 namespace music_player_android.ViewModels
 {
-    class BaseViewModel : INotifyPropertyChanged
+    public class BaseViewModel : INotifyPropertyChanged
     {
+        #region BindableProperties
+
         private string titre;
 
         public string Titre
@@ -32,6 +34,8 @@ namespace music_player_android.ViewModels
             }
         }
 
+        #endregion
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged([CallerMemberName]string propertyName = "")
@@ -42,5 +46,7 @@ namespace music_player_android.ViewModels
 
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        
     }
 }

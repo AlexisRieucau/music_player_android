@@ -1,10 +1,56 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="music_player_android.Views.DetailMusicPage">
-  <ContentView.Content>
+  <ContentPage.Content>
       <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
-  </ContentView.Content>
-</ContentView>
+            <Frame HasShadow="True" Margin="10" Padding="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0"
+                                       Grid.Column="1"
+                                       Text="{Binding CurrentMusic.Title}" 
+                                       TextColor="Black"/>
+                    <Label Grid.Row="1"
+                                       Grid.Column="1"
+                                       Text="{Binding CurrentMusic.Artist}" 
+                                       TextColor="Green"
+                                       FontAttributes="Italic"/>
+                </Grid>
+            </Frame>
+            <Label Text="{Binding CurrentMusic.Album}"/>
+            <Label Text="{Binding CurrentMusic.FilePath}"
+                   HorizontalTextAlignment="Center"/>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Play" 
+                        Command="{Binding PlayMusicCommand}" 
+                        BackgroundColor="Red" 
+                        BorderColor="Green"
+                        BorderRadius="10"
+                        HorizontalOptions="Center"
+                        MinimumWidthRequest="100"
+                        Margin="5"/>
+                <Button Text="Pause" 
+                        Command="{Binding PauseMusicCommand}" 
+                        BackgroundColor="Green" 
+                        BorderColor="Red"
+                        BorderRadius="10"
+                        HorizontalOptions="Center"
+                        MinimumWidthRequest="100"
+                        Margin="5"/>
+            </StackLayout>
+
+            <ActivityIndicator IsVisible="{Binding IsBusy}" 
+                               IsRunning="{Binding IsBusy}"
+                               Color="Red"/>
+        </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

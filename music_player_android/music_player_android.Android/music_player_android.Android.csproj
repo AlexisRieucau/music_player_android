@@ -52,8 +52,20 @@
     <PackageReference Include="Acr.UserDialogs">
       <Version>7.0.1</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.AppCenter.Analytics">
+      <Version>1.12.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AppCenter.Crashes">
+      <Version>1.12.0</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite">
       <Version>2.2.1</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Buffers">
+      <Version>4.5.0</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Essentials">
       <Version>1.0.0</Version>
@@ -66,6 +78,8 @@
     <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="27.0.2.1" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implementation\Musics_Implement.cs" />
+    <Compile Include="Implementation\Player_Implement.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -98,13 +112,15 @@
     <Folder Include="Resources\drawable-xhdpi\" />
     <Folder Include="Resources\drawable-xxhdpi\" />
     <Folder Include="Resources\drawable-xxxhdpi\" />
-    <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\music_player_android\music_player_android.csproj">
       <Project>{6BAFEA89-C00E-4603-83BA-1A01B73F56B3}</Project>
       <Name>music_player_android</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\drawable\noFrame.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

@@ -5,7 +5,60 @@
              Title = "{Binding Titre}">
   <ContentPage.Content>
       <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
+            <Entry Text="{Binding SearchText}"/>
+            <ListView x:Name="MyListView"
+                    ItemsSource="{Binding ListMusic}"
+                    BackgroundColor="White"
+                    SelectedItem="{Binding SelectedMusic}"
+                    IsPullToRefreshEnabled="True"
+                    IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                    RefreshCommand="{Binding RefreshMusicCommand}"
+                    HasUnevenRows="True"
+                    SeparatorVisibility="Default"
+                    SeparatorColor="Gray">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Grid.Row="0"
+                                       Grid.Column="0"
+                                       Grid.RowSpan="2"
+                                       Source="{Binding Frame}"
+                                       MinimumWidthRequest="50"
+                                       MinimumHeightRequest="50"
+                                       WidthRequest="50" 
+                                       HeightRequest="50" 
+                                       Aspect="AspectFit"
+                                       Margin="10"/>
+                                <Label Grid.Row="0"
+                                       Grid.Column="1"
+                                       Text="{Binding Title}"
+                                       TextColor="Black"/>
+                                <Label Grid.Row="1"
+                                       Grid.Column="1"
+                                       Text="{Binding Artist}"
+                                       TextColor="Green"
+                                       FontAttributes="Italic"/>
+                                <Label Grid.Row="2"
+                                       Grid.Column="1"
+                                       Text="{Binding Duree}"
+                                       TextColor="Black"
+                                       HorizontalTextAlignment="End"/>
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
   </ContentPage.Content>
 </ContentPage>

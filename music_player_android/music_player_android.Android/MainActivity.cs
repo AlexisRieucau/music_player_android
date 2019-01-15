@@ -8,6 +8,9 @@ using Android.Widget;
 using Android.OS;
 using Xamarin.Essentials;
 using Acr.UserDialogs;
+using Android;
+using Android.Support.Design.Widget;
+using System.Threading.Tasks;
 
 namespace music_player_android.Droid
 {
@@ -23,13 +26,32 @@ namespace music_player_android.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
             // init xamarin essentials
-            base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
 
             // init user dialogs
             UserDialogs.Init(this);
 
+            GetStoragePermission();
+
             LoadApplication(new App());
+        }
+
+        void GetStoragePermission()
+        {
+            string[] PermissionsStorage =
+            {
+                Manifest.Permission.AccessCoarseLocation,
+                Manifest.Permission.AccessFineLocation,
+                Manifest.Permission.ReadExternalStorage,
+                Manifest.Permission.WriteExternalStorage
+            };
+
+            const int RequestStorageId = 0;
+
+            //Finally request permissions with the list of permissions and Id
+            RequestPermissions(PermissionsStorage, RequestStorageId);
+            
+            return;
         }
     }
 }
