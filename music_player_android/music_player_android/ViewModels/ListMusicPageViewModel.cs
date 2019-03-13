@@ -112,7 +112,6 @@ namespace music_player_android.ViewModels
             try
             {
                 List<Music> localMusics = new List<Music>();
-                //string pathToMusic = "/storage/emulated/0/Music/Nekfeu - Feu (Reedition)/";
                 string pathToMusic = "/storage/emulated/0/Music/";
                 var files = Directory.GetFiles(pathToMusic);
                 foreach (var file in files)
