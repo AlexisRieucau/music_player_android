@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using music_player_android.DAL;
 using music_player_android.Interfaces;
 using music_player_android.Models;
+using music_player_android.Views;
 using Xamarin.Forms;
 
 namespace music_player_android.ViewModels

@@ -8,5 +8,5 @@
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-	<application android:label="music_player_android.Android"></application>
+	<application android:label="Ma musique" android:icon="@mipmap/ic_music"></application>
 </manifest>

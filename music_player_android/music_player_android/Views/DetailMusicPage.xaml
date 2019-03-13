@@ -18,34 +18,32 @@
                     <Label Grid.Row="0"
                                        Grid.Column="1"
                                        Text="{Binding CurrentMusic.Title}" 
-                                       TextColor="Black"/>
+                                       TextColor="Black"
+                                       HorizontalTextAlignment="Center"/>
                     <Label Grid.Row="1"
                                        Grid.Column="1"
                                        Text="{Binding CurrentMusic.Artist}" 
                                        TextColor="Green"
-                                       FontAttributes="Italic"/>
+                                       FontAttributes="Italic"
+                                       HorizontalTextAlignment="Center"/>
                 </Grid>
             </Frame>
-            <Label Text="{Binding CurrentMusic.Album}"/>
+            <Label Text="{Binding CurrentMusic.Album}"
+                   HorizontalTextAlignment="Center"/>
             <Label Text="{Binding CurrentMusic.FilePath}"
                    HorizontalTextAlignment="Center"/>
-            <StackLayout Orientation="Horizontal">
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="CenterAndExpand">
                 <Button Text="Play" 
                         Command="{Binding PlayMusicCommand}" 
-                        BackgroundColor="Red" 
-                        BorderColor="Green"
-                        BorderRadius="10"
-                        HorizontalOptions="Center"
-                        MinimumWidthRequest="100"
-                        Margin="5"/>
-                <Button Text="Pause" 
-                        Command="{Binding PauseMusicCommand}" 
                         BackgroundColor="Green" 
                         BorderColor="Red"
-                        BorderRadius="10"
-                        HorizontalOptions="Center"
-                        MinimumWidthRequest="100"
-                        Margin="5"/>
+                        Style="{StaticResource buttonsDetailStyle}"/>
+                <Button Text="Pause" 
+                        Command="{Binding PauseMusicCommand}" 
+                        BackgroundColor="Red" 
+                        BorderColor="Green"
+                        Style="{StaticResource buttonsDetailStyle}"/>
             </StackLayout>
 
             <ActivityIndicator IsVisible="{Binding IsBusy}" 
